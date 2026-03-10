@@ -1,6 +1,23 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
+
+class ClassBase(BaseModel):
+    class_name: str
+    advisor: str
+
+
+class ClassCreate(ClassBase):
+    pass
+
+
+class ClassResponse(ClassBase):
+    class_id: int
+
+    class Config:
+        from_attributes = True
+
+
 class StudentBase(BaseModel):
     name: str
     birth_year: int
